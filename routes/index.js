@@ -55,11 +55,13 @@ routes.post('/student/add', (req, res) => {
     let email = req.body.email
     Cstudent.addStudent(first_name, last_name, email)
     .then(status => {
-        console.log(status)
-    })
-    .catch(status => {
-        let a = status
-        res.render('addStudentForm',{a})
+        if(status == true){
+            res.render('addStudentForm')
+        }
+        else{
+            console.log('---->',status)
+            res.render('addStudentForm',{status: status})
+        }
     })
 })
 module.exports = routes

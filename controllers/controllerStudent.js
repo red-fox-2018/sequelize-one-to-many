@@ -4,10 +4,10 @@ class ControllerStudent{
 
     static addStudent(first_name, last_name, email){
         return Model.Student.create({first_name: first_name, last_name: last_name, email: email})
-            .then(student => {
+            .then(() => {
                 return true
             })
-            .catch(student => {
+            .catch(() => {
                 return false
             })
     }
