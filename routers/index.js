@@ -25,8 +25,10 @@ router.get('/teachers', function (req, res) {
 
 router.get('/teachers/add', function (req, res) {
   Subject.findAll().then((subjects) => {
-
     res.render('teacher/form_teacher', {subjects: subjects})
+  }).catch((err) => {
+    err = new Error('Something went wrong when collecting data')
+    res.render('teacher/form_teacher', {err: err})
   })
 })
 
@@ -81,7 +83,7 @@ router.post('/teachers/update/:id', function (req, res) {
   let lastName = req.body.lastName;
   let email = req.body.email;
   let subject = req.body.subjectName
-  console.log('----------------------------', subject);
+  // console.log('----------------------------', subject);
   Subject.getIdByName(subject, (subjectId) => {
     Teacher.update({
       firstName: firstName,
@@ -95,11 +97,12 @@ router.post('/teachers/update/:id', function (req, res) {
       },
       validate: false
     }).then((newRecord) => {
-      console.log(newRecord);
+      // console.log(newRecord);
       res.redirect('/teachers')
     }).catch((err) => {
       if (err) {
-        res.send(err)
+        res.render('teacher/form_update_teacher', {err: err})
+        // res.send(err)
       }
     })
   })
