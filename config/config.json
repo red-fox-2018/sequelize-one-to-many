@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "anugrah",
+    "password": "12345",
+    "database": "database_squelize_express_postgres_association1toM",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
