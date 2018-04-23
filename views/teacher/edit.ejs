@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web School</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/index-style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="/">Web School</a>
+    </nav>
+
+    <div class="container mt-5">
+      <form action="/teachers/edit/<%= teacher.id %>" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="fname">First Name :</label>
+            <input type="text" id="fname" class="form-control" name="firstname" value="<%= teacher.first_name %>"> <br/>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="lname">Last Name :</label>
+            <input type="text" id="lname" class="form-control" name="lastname" value="<%= teacher.last_name %>"> <br/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email :</label>
+          <input type="text" id="email" class="form-control" name="email" value="<%= teacher.email %>"> <br/>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject :</label>
+          <select name="SubjectId" id="subject" class="custom-select">
+            <option value='' > --- select subject --- </option>
+            <% Subjects.forEach(function(subject) {%>
+               <option value= '<%= subject.id %>' <%= teacherHelpers.selectedForm(subject, teacher.id) %> >
+                 <%= subject.subject_name %>
+               </option>
+            <% }) %>
+          </select>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+
+  </body>
+</html>
