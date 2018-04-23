@@ -31,7 +31,8 @@ router.post('/add', (req, res) => {
   let values = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    email: req.body.email
+    email: req.body.email,
+    SubjectId: req.body.SubjectId
   }
   TeacherController.insert(values)
     .then(() => {
@@ -61,7 +62,10 @@ router.get('/update/:id', (req, res) => {
   let id = req.params.id;
   TeacherController.findById(id)
     .then(teacher => {
-      res.render('teacher/page-teacher-edit', { teacher });
+      SubjectController.getAll()
+      .then(subjects => {
+        res.render('teacher/page-teacher-edit', { teacher, subjects });
+      })
     })
     .catch(err => {
       console.log(err.message);
@@ -74,8 +78,9 @@ router.post('/update/:id', (req, res) => {
   let firstName = req.body.firstName;
   let lastName = req.body.lastName;
   let email = req.body.email;
+  let SubjectId = req.body.SubjectId;
 
-  TeacherController.update(id, { firstName, lastName, email })
+  TeacherController.update(id, { firstName, lastName, email, SubjectId })
     .then(() => {
       res.redirect('/teacher');
     })
