@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Teacher</title>
+    <style>
+        header, form{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Add Teachers Data</h1>
+        <a href="/teachers">Show all Data</a>
+        <br>
+        <% if(msg){ %>
+            <span><%= msg %></span>
+        <% } %>
+    </header>
+    <main>
+        <form action="/teacher/add" method="POST">
+            <label>First Name</label>
+            <br>
+            <input type="text" name="firstName" />
+            <br>
+            <label>Last Name</label>
+            <br>
+            <input type="text" name="lastName" />
+            <br>
+            <label>Email</label>
+            <br>
+            <input type="text" name="email" />
+            <br>
+            <input type="submit" value="Add Student" />
+        </form>
+    </main>
+</body>
+</html>

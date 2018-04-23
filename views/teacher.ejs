@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>teachers data</title>
+    <style>
+        header{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        table, tr,td ,th{
+            text-align: center;
+            margin: auto;
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>All Teacher Data</h1>
+        <a href="/teachers/add">Add Teachers Data</a>
+    </header>
+    <main>
+        <% if(msg){ %>
+        <span><%= msg %></span>
+        <% } %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th colspan="2">Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% teachersData.forEach(function(listTeacher) {%>
+                <tr>
+                    <td><%= listTeacher.id %></td>
+                    <td><%= listTeacher.firstName %></td>
+                    <td><%= listTeacher.lastName %></td>
+                    <td><%= listTeacher.email %></td>
+                    <td>unassigned</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
