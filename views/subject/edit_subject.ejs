@@ -1,0 +1,15 @@
+<html>
+  <body>
+
+    <h1>Edit Subject Data</h1>
+
+      <form action="/subjects/edit/<%= subject.id %>" method="post" >
+        Name:<br>
+        <input type="text" name="subject_name" value="<%= subject.subject_name %>">
+        <br><br>
+        <input type="hidden" name="id" value="<%= subject.id %>">
+        <input type="submit" value="Submit">
+      </form>
+
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <style>
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+h2{
+  text-align: center;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+  </style>
+
+</head>
+
+<body>
+
+<h2>Students Table</h2>
+
+  <table>
+
+    <tr>
+
+      <td><b>First Name</b></td>
+      <td><b>Last Name</b></td>
+      <td><b>Email</b></td>
+
+    </tr>
+
+    <% for (let i = 0; i < data_students.length; i++) { %>
+
+      <tr><td><%= data_students[i].first_name %></td>
+          <td><%= data_students[i].last_name %></td>
+          <td><%= data_students[i].email%></td>
+
+      <td><a href= '/students/edit/<%= data_students[i].id %>'>Edit</a> | <a href= 'students/delete/<%= data_students[i].id %>'>Delete</a></td>
+
+    <% } %>
+
+  </table>
+
+  <form action="/students/add" method="get">
+
+    <button input type="submit" >Add Student</button>
+
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+h2{
+  text-align: center;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+</style>
+</head>
+<body>
+
+<h2>Subjects Table</h2>
+
+  <table>
+
+    <tr>
+      <td><b>Name</b></td>
+    </tr>
+
+    <% for (let i = 0; i < data_subject.length; i++) { %>
+      <tr><td><%= data_subject[i].subject_name %></td>
+      <td><a href= '/subjects/edit/<%= data_subject[i].id %>'>Edit</a> | <a href= '/subjects/delete/<%= data_subject[i].id %>'>Delete</a></td>
+
+    <% } %>
+
+
+  </table>
+
+  <form action="/subjects/add" method="get">
+
+    <button input type="submit" >Add Subject</button>
+
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+  <body>
+
+    <h1>Add Teachers Data</h1>
+
+      <form action="/teachers/add" method="post" >
+        First name:<br>
+        <input type="text" name="first_name">
+        <br>
+        Last name:<br>
+        <input type="text" name="last_name">
+        <br>
+        Email:<br>
+        <input type="text" name="email">
+        <br><br>
+
+        <select name="list_subject">
+          <% for (let i = 0; i < list.length; i++) { %>
+
+            <option value="<%= list[i].id%>"><%= list[i].subject_name%></option>
+
+            <% } %>
+          </select><br>
+          <br>
+          <input type="submit" value="Submit">
+      </form>
+
+  </body>
+</html>
