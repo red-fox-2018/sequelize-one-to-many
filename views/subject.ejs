@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teacher Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">WEB SCHOOL</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/teachers">Teachers</a>
+          </li>
+          <li>
+            <a href="/subjects">Subjects</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Teacher Data</h1>
+    <p>
+      <a href="/teachers/add">add student</a>
+    </p>
+    <div class="table-responsive"></div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% teachers.forEach(teacher => { %>
+          <tr>
+            <td>
+              <%= teacher.id %>
+            </td>
+            <td>
+              <%= teacher.first_name %>
+            </td>
+            <td>
+              <%= teacher.last_name %>
+            </td>
+            <td>
+              <%= teacher.email %>
+            </td>
+            <td>
+              unassigned
+            </td>
+            <td>
+              <a href="/teachers/edit/<%= teacher.id %>">Edit</a> |
+              <a href="/teachers/delete/<%= teacher.id %>" onclick="return confirm('delete this teacher?');">Delete</a>
+            </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</body>
+
+</html>
