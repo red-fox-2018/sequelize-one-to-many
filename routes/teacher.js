@@ -2,6 +2,7 @@
 const express = require('express')
 const router = express.Router()
 const { TeacherController } = require('./../controllers');
+const { SubjectController } = require('./../controllers');
 
 // @router GET /teacher
 router.get('/', (req, res) => {
@@ -18,7 +19,11 @@ router.get('/', (req, res) => {
 
 // @router GET /teacher/add
 router.get('/add', (req, res) => {
-  res.render('techer/page-teacher-add');
+  SubjectController.getAll()
+    .then(subjects => {
+      // res.send(subjects);
+      res.render('teacher/page-teacher-add', { subjects });
+    })
 });
 
 // @router POST /teacher/add
