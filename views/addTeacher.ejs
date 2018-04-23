@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form method="POST">
+      First name:<br>
+      <input type="text" name="first_name">
+      <br>
+      Last name:<br>
+      <input type="text" name="last_name"><br>
+      email:<br>
+      <input type="text" name="email"><br>
+      <select >
+       <% info.forEach(function(subject) {%>
+       <option value="<%= subject.id %>"><%=subject.subject_name%></option>
+       <% })%>
+      </select>
+      <br><br>
+      <input type="submit" value="add teacher">
+    </form>
+  </body>
+</html>

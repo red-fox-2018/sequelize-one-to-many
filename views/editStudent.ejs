@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h2>Edit student data</h2>
+
+    <form method="post">
+      <input type="hidden" name="studentId" value="<%= info.id %>">
+      First name:<br>
+      <input type="text" name="first_name" value="<%= info.first_name %>">
+      <br>
+      Last name:<br>
+      <input type="text" name="last_name" value="<%= info.last_name %>">
+      <br>
+      Email:<br>
+      <input type="text" name="email" value="<%= info.email %>">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+  </body>
+</html>
