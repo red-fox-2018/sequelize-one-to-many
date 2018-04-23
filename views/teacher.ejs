@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>
+  list name of teacher
+</title>
+<body class="container">
+
+<main>
+    <div class="jumbotron">
+        <h1>List of the Teachers</h1>
+        <table>
+          <th>nama depan</th>
+          <th>nama belakang</th>
+          <th>alamat email</th>
+          <th>Ngajarin ini </th>
+          <th>action</th>
+        <% for(var i=0; i < datanyasiteachers.length; i++) { %>
+           <tr>
+             <td><%= datanyasiteachers[i].first_name %></td>
+             <td><%= datanyasiteachers[i].last_name %></td>
+             <td><%= datanyasiteachers[i].email %></td>
+             <td><%= teacherHelper(datanyasiteachers[i].Subject) %></td>
+             <td><a href ='/teacher/edit/<%= datanyasiteachers[i].id %>'> edit /</a><td>
+             <td><a href ='./teacher/delete/<%= datanyasiteachers[i].id %>' onclick="return confirm('delete this teacher: <%= datanyasiteachers[i].first_name %>?')">delete</a><td>
+           </tr>
+        <% } %>
+        </table>
+    </div>
+</main>
+<br>
+<br>
+<br>
+<form action = '/teacher' method="post">
+  <label> firstname </label>
+  <input name ="firstname" type="text" value=''><br>
+  <label> lastname </label>
+  <input name ="lastname" type="text" value=''><br>
+  <label> email </label>
+  <input name ="email"  type="text" value=''>
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+<footer>
+  <h3>
+  <a href = "/teacher"> Teachers</a>
+  <a href = "/subject"> Subjects</a>
+  <a href = "/student"> Students</a>
+  </h3>
+</footer>
+
+</body>
+</html>

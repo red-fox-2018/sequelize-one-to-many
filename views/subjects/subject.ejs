@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>
+  list name of teacher
+</title>
+<body class="container">
+
+<main>
+    <div class="jumbotron">
+        <h1>List of the Subjects</h1>
+        <table>
+          <th>nama subject</th>
+          <th>action</th>
+        <% for(var i=0; i < subjectDataEjs.length; i++) { %>
+           <tr>
+             <td><%= subjectDataEjs[i].subject_name %></td>
+             <td><a href ='./subject/delete/<%= subjectDataEjs[i].id %>' onclick="return confirm('delete this subject?')">delete</a><td>
+           </tr>
+        <% } %>
+        </table>
+    </div>
+</main>
+<br>
+<br>
+<br>
+ADD SUBJECT
+<form action = '/subject' method="post">
+  <label> Subject Name </label>
+  <input name ="subjectName" type="text" value=''><br>
+  <input type="submit" value="Submit">
+</form>
