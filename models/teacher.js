@@ -14,19 +14,22 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Email format is incorrect'
         },
         isUnique(value, next) {
-          let kondisi = {
+          // Condition for Add Teacher
+          let condition = {
             email: value
           }
+          // Condition for Edit Teacher
           if (this.id != null) {
-            kondisi = {
+            condition = {
               email: value,
               id: {
                 [Op.ne]: this.id
               }
             }
           }
+
           sequelize.models.Teacher.findOne({
-              where: kondisi
+              where: condition
             })
             .then(emailInput => {
               if (emailInput) {
@@ -42,7 +45,15 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     SubjectId: DataTypes.INTEGER
-  }, {});
+  }, {
+    hooks: {
+      beforeCreate: (teacher, options) => {
+        if (teacher.last_name === '') {
+          teacher.last_name = 'Hacktiv8'
+        }
+      }
+    }
+  });
   Teacher.associate = function (models) {
     // associations can be defined here
     Teacher.belongsTo(models.Subject);
