@@ -1,10 +1,10 @@
 
 const TeacherController = require('./teacher');
 const SubjectController = require('./subject');
-// const StudentController = require('./student');
+const StudentController = require('./student');
 
 module.exports = {
   TeacherController,
-  // StudentController,
+  StudentController,
   SubjectController
 }
