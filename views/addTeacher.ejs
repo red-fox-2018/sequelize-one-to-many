@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Teachers Data</title>
+</head>
+<body>
+    <style>
+        body {
+            text-align: center;
+            margin: auto;
+        }
+
+        table {
+            margin: auto;
+        }
+    </style>
+    
+    <h1>Add Teahers Data</h1>
+    <a href="/subjects">show all data</a>
+    
+    <% if(message!=''){ %>
+        <table>
+            <p><%=message.substr(18)%></p>
+        </table>
+    <%  } %>
+
+    <form action="" method="post">
+        <p>First Name:</p>
+        <input type="text" name='first_name'>
+        <br>
+        <p>Last Name:</p>
+        <input type="text" name='last_name'>
+        <br>
+        <p>Email:</p>
+        <input type="text" name='email'>
+        <br>
+        <br>
+        <input type="submit" class='submit' value='Add Student'>
+    </form>
+</body>
+</html>
