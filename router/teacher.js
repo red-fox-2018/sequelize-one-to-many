@@ -21,15 +21,7 @@ teacher.get('/teachers', function (req, res) {
     ]
   })
     .then(teachers => {
-      // teachers.sort((a, b) => {
-      //   if (a.id < b.id)
-      //     return -1;
-      //   if (a.id > b.id)
-      //     return 1;
-      //   return 0;
-      // })
-      // res.render('teacher', { teachers })
-      res.send(teachers)
+      res.render('teacher', {teachers})
     })
 });
 
@@ -38,13 +30,7 @@ teacher.get('/teachers/add', function (req, res) {
 });
 teacher.post('/teachers/add', urlencodedParser, function (req, res) {
   let teacherPost = req.body;
-  Teacher.create({
-    first_name: teacherPost.first_name,
-    last_name: teacherPost.last_name,
-    email: teacherPost.email,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  })
+  Teacher.create(teacherPost)
     .then(
       teacher => {
         res.redirect('/teachers');
