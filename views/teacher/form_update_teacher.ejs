@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Input new data</h2>
+    <form class="" action="/teachers/update/<%= teacher.id%>" method="post">
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td>:</td>
+          <td> <input type="text" name="firstName" value="<%= teacher.firstName%>"> </td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>:</td>
+          <td> <input type="text" name="lastName" value="<%= teacher.lastName%>"> </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>:</td>
+          <td> <input type="text" name="email" value="<%= teacher.email%>"> </td>
+        </tr>
+        <tr>
+          <td>Subject</td>
+          <td>:</td>
+          <td>
+            <select class="" name="subjectName">
+              <% subjects.forEach((subject) => { %>
+                <option value="<%= subject.name%>"><%= subject.name%></option>
+              <% })%>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

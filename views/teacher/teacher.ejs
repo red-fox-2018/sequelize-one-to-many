@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>All Teacher Data</h1>
+    <h3> <a href="/teachers/add">Add Teacher Data</a> </h3>
+    <table border="1px black solid">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Subject</th>
+          <th>Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% var i = 1 %>
+        <% teachers.forEach((teacher) => { %>
+          <tr>
+            <td> <%= i %> </td>
+            <td> <%= teacher.firstName%> </td>
+            <td> <%= teacher.lastName%> </td>
+            <td> <%= teacher.email%> </td>
+            <% if(teacher.subjectId === null) { %>
+              <td> unassigned </td>
+            <% } else { %>
+              <td> <%= teacher.Subject.name%> </td>
+            <% } %>
+            <td> <a href="/teachers/update/<%= teacher.id%>">edit</a> |
+                 <a href="/teachers/delete/<%= teacher.id%>" onclick="return confirm('Are you sure?')">delete</a>
+            </td>
+            <% i++ %>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
