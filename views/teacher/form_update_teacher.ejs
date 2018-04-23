@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h2>Input new data</h2>
+    <h2>Edit Data</h2>
     <form class="" action="/teachers/update/<%= teacher.id%>" method="post">
       <table>
         <tr>
@@ -37,5 +37,9 @@
       </table>
       <button type="submit">Submit</button>
     </form>
+    <% if(typeof err !== 'undefined') { %>
+      <p><%= err%></p>
+    <% } %>
+    <a href="/">Homepage</a>
   </body>
 </html>
