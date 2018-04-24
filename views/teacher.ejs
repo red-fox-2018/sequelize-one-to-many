@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test teacher</title>
+    <title>Teacher</title>
 </head>
 <body>
-    <%=teachers=>
+        <% teacher.forEach(function(teacher) { %>
+            <li><%=teacher.first_name %>  Subject : <%=teacher.Subject.subject_name%></li>
+            <a href="delete/<%=teacher.id%>">Delete</a>
+        <% }); %><br><br>
+
+    <form action="/teacher/add" method="post">
+        firstname:
+        <input type="text" name="firstname">
+        lastname:
+        <input type="text" name="lastname">
+        subject:
+        <input type="text" name="subject">
+        email:
+        <input type="text" name="email">
+        <input type="submit" value="submit">
+    </form>
+
 </body>
 </html>

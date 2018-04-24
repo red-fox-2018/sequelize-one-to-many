@@ -6,7 +6,25 @@ module.exports = (sequelize, DataTypes) => {
     email:{
       type:DataTypes.STRING,
       validate:{
-        isEmail:true
+        isEmail:true,
+        isUnique:function(inputEmail,next){
+          Teacher.find({where:{
+            email:inputEmail
+          }})
+          .then(teacherEmail=>{
+            if(teacherEmail==null){
+              next()
+            }
+            else{
+              return next("udah ada")
+            }
+          })
+        }
+      },
+    //defaultnya nyari yang huruf depannya huruf Gede
+    //trus ada Id nya I nya huruf gede jg 
+    SubjectId:{
+      type:DataTypes.INTEGER
       }
     }
   }, {});
