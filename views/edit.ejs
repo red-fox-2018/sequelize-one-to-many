@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <form action="/teachers/edit/<%= dataIdTeacher.id%>" method="post">
+      First name:<br>
+      <input type="text" name="firstName" value="<%= dataIdTeacher.firstName%>">
+      <br>
+      Last name:<br>
+      <input type="text" name="lastName" value="<%= dataIdTeacher.lastName%>" >
+      <br>Email:<br>
+      <input type="text" name="email" value="<%= dataIdTeacher.email%>">
+      <br>
+      <input type="submit" value="Submit">
+  </body>
+</html>
