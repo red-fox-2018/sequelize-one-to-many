@@ -13,7 +13,12 @@
       <input type="text" name="last_name" value="<%= info.last_name %>">
       <br>
       Email:<br>
-      <input type="text" name="email" value="<%= info.email %>">
+      <input type="text" name="email" value="<%= info.email %>"><br>
+      <select name="subject_id">
+          <% subjectInfo.forEach(function(subject) {%>
+       <option value=<%=subject.id%>><%= subject.subject_name %></option>
+       <%})%>
+      </select>
       <br><br>
       <input type="submit" value="Submit">
     </form>

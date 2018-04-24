@@ -13,9 +13,9 @@
       <input type="text" name="last_name"><br>
       email:<br>
       <input type="text" name="email"><br>
-      <select >
-       <% info.forEach(function(subject) {%>
-       <option value="<%= subject.id %>"><%=subject.subject_name%></option>
+      <select name="subject_id">
+       <% info.forEach(function(data) {%>
+       <option value="<%= data.id %>"><%=data.subject_name%></option>
        <% })%>
       </select>
       <br><br>

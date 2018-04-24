@@ -24,13 +24,18 @@ router.get('/teachers/add', (req, res) => {
       res.render('../views/addTeacher', obj);
     })
   })
+  .catch(err => {
+    // console.log(err)
+    res.send(err)
+  })
 })
 
 router.post('/teachers/add', (req, res) => {
   Model.Teacher.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
-    email: req.body.email
+    email: req.body.email,
+    SubjectId: req.body.subject_id
   })
   .then(function() {
     res.send('data teacher added')
@@ -44,25 +49,33 @@ router.get('/teachers/edit/:id', (req, res) => {
   let teacher_id = req.params.id;
 
   Model.Teacher.findOne({
-    where: {id: teacher_id}
+    where: {id: teacher_id},
+    include: Model.Subject
   })
   .then(values => {
-    let obj = {info: values};
-    res.render('../views/editTeacher', obj)
+    Model.Subject.findAll()
+    .then(function(data) {
+      let obj = {info: values, subjectInfo: data};
+      res.render('../views/editTeacher', obj)
+    })
   })
 })
 
-router.post('/teachers/edit/:id', (req, res) => {
+router.post('/teachers/edit/:id', (req, res, cb) => {
   let teacher_id = req.params.id;
   Model.Teacher.update({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
-    email: req.body.email
+    email: req.body.email,
+    SubjectId: req.body.subject_id
   }, {
     where: {id: teacher_id}
   })
   .then(function() {
     res.redirect('/teachers')
+  })
+  .catch(err => {
+    cb(err);
   })
 })
 
