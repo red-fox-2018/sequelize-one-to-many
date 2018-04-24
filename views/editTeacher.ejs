@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Teacher</title>
+</head>
+<body>
+	<h1>Edit Teacher</h1>
+
+	<form action="/teachers/editTeacher/<%= dataTeacher.id %>" method="post">
+  		First name:<br>
+  		<input type="text" name="first_name" required>
+  		<br>
+  		Last name:<br>
+  		<input type="text" name="last_name" required>
+  		<br>
+  		Email:<br>
+  		<input type="text" name="Email" required>
+  		<br><br>
+ 		<input type="submit" value="Edit Teacher">
+	</form>
+	<p><a href="/teachers"> back </a></p> 
+</body>
+</html>

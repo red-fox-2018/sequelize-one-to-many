@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "aldoalprak",
+    "database": "express_association",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
+  

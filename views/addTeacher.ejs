@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Teacher</title>
+</head>
+<body>
+	<h1>Add Teacher</h1>
+
+	<form action="/teachers/addTeacher" method="post">
+  		First name:<br>
+  		<input type="text" name="first_name" required>
+  		<br>
+  		Last name:<br>
+  		<input type="text" name="last_name" required>
+  		<br>
+  		Email:<br>
+  		<input type="text" name="email" required>
+  		<br><br>
+      Subject id:<br>
+      <input type="integer" name="subject_id" required>
+      <br><br>
+ 		<input type="submit" value="Add Teacher">
+
+	</form>
+
+   <% if(typeof error  !== "undefined") {%>
+      <p><%=error %></p>
+   <% } %>
+	<p><a href="/teachers"> back </a></p> 
+</body>
+</html>

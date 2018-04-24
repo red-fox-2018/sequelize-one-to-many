@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teachers List</title>
+</head>
+<body>
+	<h1>Teachers List</h1>
+	<p><a href= "/teachers/addTeacher">Add Teacher</a></p>
+	<table>
+  		<tr>
+    		<th>First Name</th>
+    		<th>Last Name</th>
+    		<th>Email</th>
+        <th>Subject</th>
+    		<th>Options</th>
+
+  		</tr>
+  			<% for(var i=0; i < teachersSubject.length; i++) { %>
+  		<tr>
+   			<td><%= teachersSubject[i].first_name %></td>
+   			<td><%= teachersSubject[i].last_name %></td>
+    		<td><%= teachersSubject[i].email %></td>
+        <td><%= teachersSubject[i].Subject.subject_name %></td>
+
+    		<td><a href='/teachers/editTeacher/<%= teachersSubject[i].id %>'>edit</a>|<a href = '/teachers/<%= teachersSubject[i].id %>' onclick="return confirm('delete this teacher?')"> delete </a></td>
+  		</tr>
+  			<% } %>
+</table>
+	<p><a href="/">back</a></p>		
+</body>
+</html>
+
